@@ -7,4 +7,5 @@ export const aboutController = {
         return h.view("about-view", viewData);
       },
     },
+    
   };

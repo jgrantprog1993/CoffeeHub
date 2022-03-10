@@ -7,6 +7,7 @@ export const db = {
   categoryStore: null,
   coffeeShopStore: null,
 
+  
   init() {
     this.userStore = userMemStore;
     this.categoryStore = categoryMemStore;

@@ -16,6 +16,7 @@ export const dashboardController = {
     handler: async function (request, h) {
       const newcategory = {
         title: request.payload.title,
+        
       };
       await db.categoryStore.addCategory(newcategory);
       return h.redirect("/dashboard");

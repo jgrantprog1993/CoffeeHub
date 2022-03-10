@@ -6,6 +6,7 @@ export const accountsController = {
       return h.view("main", { title: "Welcome to category" });
     },
   },
+  
   showSignup: {
     handler: function (request, h) {
       return h.view("signup-view", { title: "Sign up for category" });

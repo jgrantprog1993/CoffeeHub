@@ -12,6 +12,7 @@ export const coffeeShopMemStore = {
     coffeeShop.categoryid = categoryId;
     coffeeShops.push(coffeeShop);
     return coffeeShop;
+    
   },
 
   async getCoffeeShopsByCategoryId(id) {

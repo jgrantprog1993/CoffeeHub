@@ -17,7 +17,6 @@ export const categoryController = {
       const category = await db.categoryStore.getCategoryById(request.params.id);
       const newCoffeeShop = {
         title: request.payload.title,
-        
       };
       await db.coffeeShopStore.addCoffeeShop(category._id, newCoffeeShop);
       return h.redirect(`/category/${category._id}`);
