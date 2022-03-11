@@ -18,4 +18,4 @@ export const webRoutes = [
 
   { method: "GET", path: "/category/{id}", config: categoryController.index },
   { method: "POST", path: "/category/{id}/addCoffeeShop", config: categoryController.addCoffeeShop },
-]; 
+];  

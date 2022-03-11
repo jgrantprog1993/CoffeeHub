@@ -10,7 +10,7 @@ export const categoryController = {
       };
       return h.view("category-view", viewData);
     },
-  },
+  }, 
 
   addCoffeeShop: {
     handler: async function (request, h) {

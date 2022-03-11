@@ -7,6 +7,7 @@ export const accountsController = {
     },
   },
   
+  
   showSignup: {
     handler: function (request, h) {
       return h.view("signup-view", { title: "Sign up for category" });

@@ -14,7 +14,7 @@
     "rules": {
       "quotes": [
         "error",
-        "double"
+        "double" 
       ],
       "import/extensions": "off",
       "import/prefer-default-export": "off",

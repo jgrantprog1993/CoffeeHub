@@ -13,7 +13,7 @@ export const coffeeShopMemStore = {
     coffeeShops.push(coffeeShop);
     return coffeeShop;
     
-  },
+  }, 
 
   async getCoffeeShopsByCategoryId(id) {
     return coffeeShops.filter((coffeeShop) => coffeeShop.categoryid === id);

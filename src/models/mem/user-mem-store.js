@@ -16,7 +16,7 @@ export const userMemStore = {
   async getUserById(id) {
     return users.find((user) => user._id === id);
   },
-
+ 
   async getUserByEmail(email) {
     return users.find((user) => user.email === email);
   },

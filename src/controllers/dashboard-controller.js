@@ -10,7 +10,7 @@ export const dashboardController = {
       };
       return h.view("dashboard-view", viewData);
     },
-  },
+  }, 
 
   addCategory: {
     handler: async function (request, h) {

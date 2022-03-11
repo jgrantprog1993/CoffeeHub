@@ -13,4 +13,4 @@ export const db = {
     this.categoryStore = categoryMemStore;
     this.coffeeShopStore = coffeeShopMemStore;
   },
-};
+}; 

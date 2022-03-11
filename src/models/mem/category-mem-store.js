@@ -12,7 +12,7 @@ export const categoryMemStore = {
     category._id = v4();
     categories.push(category);
     return category;
-  },
+  }, 
 
   async getCategoryById(id) {
     const list = categories.find((category) => category._id === id);

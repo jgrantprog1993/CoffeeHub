@@ -23,7 +23,7 @@ async function init() {
     path: "./views",
     layoutPath: "./views/layouts",
     partialsPath: "./views/partials",
-    layout: true,
+    layout: true, 
     isCached: false,
   });
   db.init();
