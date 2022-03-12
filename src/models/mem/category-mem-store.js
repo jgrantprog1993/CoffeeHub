@@ -29,4 +29,8 @@ export const categoryMemStore = {
     categories = [];
     
   },
+
+  async getUserCategories(userid) {
+    return categories.filter((category) => category.userid === userid);
+  },
 };

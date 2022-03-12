@@ -5,7 +5,7 @@ export const categoryController = {
     handler: async function (request, h) {
       const category = await db.categoryStore.getCategoryById(request.params.id);
       const viewData = {
-        title: "category",
+        title: "Category",
         category: category,
       };
       return h.view("category-view", viewData);
@@ -19,6 +19,14 @@ export const categoryController = {
         title: request.payload.title,
       };
       await db.coffeeShopStore.addCoffeeShop(category._id, newCoffeeShop);
+      return h.redirect(`/category/${category._id}`);
+    },
+  },
+  
+  deleteCoffeeShop: {
+    handler: async function(request, h) {
+      const category = await db.categoryStore.getCategoryById(request.params.id);
+      await db.coffeeShopStore.deleteCoffeeShop(request.params.coffeeShopid);
       return h.redirect(`/category/${category._id}`);
     },
   },
