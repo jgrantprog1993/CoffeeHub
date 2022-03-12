@@ -13,6 +13,13 @@ export const categoryController = {
   }, 
 
   addCoffeeShop: {
+    validate: {
+      payload: CoffeeShopSpec,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("category-view", { title: "Add coffeeShop error", errors: error.details }).takeover().code(400);
+      },
+    },
     handler: async function (request, h) {
       const category = await db.categoryStore.getCategoryById(request.params.id);
       const newCoffeeShop = {
