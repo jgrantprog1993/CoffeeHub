@@ -44,8 +44,7 @@ export const coffeeShopJsonStore = {
 
   async updatecoffeeShop(coffeeShop, updatedcoffeeShop) {
     coffeeShop.title = updatedcoffeeShop.title;
-    coffeeShop.artist = updatedcoffeeShop.artist;
-    coffeeShop.duration = updatedcoffeeShop.duration;
+    
     await db.write();
   },
 };

@@ -21,9 +21,12 @@ export const categoryJsonStore = {
   },
 
   async getCategoryById(id) {
-    await db.read();
-    const list = db.data.categories.find((category) => category._id === id);
-    list.coffeeShops = await coffeeShopJsonStore.getCoffeeShopsByCategoryId(list._id);
+    let list = db.data.categories.find((category) => category._id === id);
+    if (list) {
+      list.coffeeShops = await coffeeShopJsonStore.getcoffeeShopsByCategoryId(list._id);
+    } else {
+      list = null;
+    }
     return list;
   },
 
@@ -35,7 +38,7 @@ export const categoryJsonStore = {
   async deleteCategoryById(id) {
     await db.read();
     const index = db.data.categories.findIndex((category) => category._id === id);
-    db.data.categories.splice(index, 1);
+    if (index !== -1) db.data.categories.splice(index, 1);
     await db.write();
   },
 

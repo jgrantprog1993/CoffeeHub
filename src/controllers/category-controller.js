@@ -1,4 +1,5 @@
 import { db } from "../models/db.js";
+import { CoffeeShopSpec } from "../models/joi-schemas.js";
 
 export const categoryController = {
   index: {
