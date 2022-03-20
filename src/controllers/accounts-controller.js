@@ -5,7 +5,7 @@ export const accountsController = {
   index: {
     auth: false,
     handler: function (request, h) {
-      return h.view("main", { title: "Welcome to Category" });
+      return h.view("main", { title: "Welcome to CoffeeHub" });
     },
   },
   
@@ -13,7 +13,7 @@ export const accountsController = {
   showSignup: {
     auth: false,
     handler: function (request, h) {
-      return h.view("signup-view", { title: "Sign up for Category" });
+      return h.view("signup-view", { title: "Sign up for CoffeeHub" });
     },
   },
   signup: {
@@ -34,7 +34,7 @@ export const accountsController = {
   showLogin: {
     auth: false,
     handler: function (request, h) {
-      return h.view("login-view", { title: "Login to category" });
+      return h.view("login-view", { title: "Login to CoffeeHub" });
     },
   },
   login: {
@@ -63,7 +63,8 @@ export const accountsController = {
       return h.redirect("/");
     },
   },
-
+  // showuserCred
+  // updateuserCred
   async validate(request, session) {
     const user = await db.userStore.getUserById(session.id);
     if (!user) {

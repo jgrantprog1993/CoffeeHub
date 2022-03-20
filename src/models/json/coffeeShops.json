@@ -1,3 +1,28 @@
 {
-    "coffeeShops": []
-  }
+  "coffeeShops": [
+    {
+      "coffeeShopName": "CakeFace",
+      "lat": 52.6558,
+      "lng": -7.2557,
+      "description": "Down in IrishTown, best flatwhite and fancy cakes",
+      "_id": "2297e523-0f0d-470c-9114-a4634553b5ae",
+      "categoryid": "e18c30ea-5895-461d-bb2e-c834a18ef415"
+    },
+    {
+      "coffeeShopName": "Cafe La COCO",
+      "lat": 52.65,
+      "lng": -7.2517,
+      "description": "Beside the Left Bank, very small",
+      "_id": "f84c72e0-8e1f-4c54-9084-7edc44748036",
+      "categoryid": "e18c30ea-5895-461d-bb2e-c834a18ef415"
+    },
+    {
+      "coffeeShopName": "Face2",
+      "lat": 52.6532,
+      "lng": -7.253453,
+      "description": "Extra small flatwhites",
+      "_id": "5ab0b137-a861-4a99-874a-bd32b2b2c7e3",
+      "categoryid": "e18c30ea-5895-461d-bb2e-c834a18ef415"
+    }
+  ]
+}

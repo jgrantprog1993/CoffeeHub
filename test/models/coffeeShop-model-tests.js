@@ -8,7 +8,7 @@ suite("CoffeeShop Model tests", () => {
   let countyList = null;
 
   setup(async () => {
-    db.init("mongo");
+    db.init("json");
     await db.categoryStore.deleteAllCategories();
     await db.coffeeShopStore.deleteAllCoffeeShops();
     countyList = await db.categoryStore.addCategory(county);
@@ -46,17 +46,16 @@ suite("CoffeeShop Model tests", () => {
   });
 
   test("delete One CoffeeShop - success", async () => {
-    await db.coffeeShopStore.deleteCoffeeShop(testCoffeeShops[0]._id);
+    const id = testCoffeeShops[0]._id;
+    console.log(id)
+    await db.coffeeShopStore.deleteCoffeeShop(id);
     const coffeeShops = await db.coffeeShopStore.getAllCoffeeShops();
-    assert.equal(coffeeShops.length, testCategories.length - 1);
-    const deletedCoffeeShop = await db.coffeeShopStore.getCoffeeShopById(testCoffeeShops[0]._id);
-    assert.isNull(deletedCoffeeShop);
+    assert.equal(coffeeShops.length, testCoffeeShops.length - 1);
+    const deletedCoffeeShop = await db.coffeeShopStore.getCoffeeShopById(id);
+    console.log(deletedCoffeeShop)
+    assert.isUndefined(deletedCoffeeShop);
   });
 
-  test("get a coffeeShop - bad params", async () => {
-    assert.isNull(await db.coffeeShopStore.getCoffeeShopById(""));
-    assert.isNull(await db.coffeeShopStore.getCoffeeShopById());
-  });
 
   test("delete one coffeeShop - fail", async () => {
     await db.coffeeShopStore.deleteCoffeeShop("bad-id");

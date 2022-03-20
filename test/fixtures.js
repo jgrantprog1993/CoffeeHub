@@ -44,23 +44,30 @@ export const maggie = {
       {title: "Waterford City"},
       {title: "South Waterford"},
       {title: "West Waterford"},
-      {title: "Tipperary"}
+      
   ]
 
   export const testCoffeeShops = [
       {
-        "title": "CakeFace"
+        coffeeShopName: "CakeFace",
+        lat:52.6558,
+        lng:-7.2557,
+        description: "Down in IrishTown, best flatwhite and fancy cakes"
 
       },
       {
-        "title": "Cafe La COCO"
+        coffeeShopName: "Cafe La COCO",
+        lat:52.6500,
+        lng:-7.2517,
+        description: "Beside the Left Bank, very small"
       },
       {
-        "title": "Face2"
+        coffeeShopName: "Face2",
+        lat:52.6532,
+        lng:-7.253453,
+        description: "Extra small flatwhites"
       },
-      {
-        "title": "Other"
-      }
+      
 
   ]
 

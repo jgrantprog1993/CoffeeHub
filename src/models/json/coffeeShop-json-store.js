@@ -6,12 +6,12 @@ const db = new Low(new JSONFile("./src/models/json/coffeeShops.json"));
 db.data = { coffeeShops: [] };
 
 export const coffeeShopJsonStore = {
-  async getAllcoffeeShops() {
+  async getAllCoffeeShops() {
     await db.read();
     return db.data.coffeeShops;
   },
 
-  async addcoffeeShop(categoryId, coffeeShop) {
+  async addCoffeeShop(categoryId, coffeeShop) {
     await db.read();
     coffeeShop._id = v4();
     coffeeShop.categoryid = categoryId;
@@ -20,30 +20,33 @@ export const coffeeShopJsonStore = {
     return coffeeShop;
   },
 
-  async getcoffeeShopsByCategoryId(id) {
+  async getCoffeeShopsByCategoryId(id) {
     await db.read();
     return db.data.coffeeShops.filter((coffeeShop) => coffeeShop.categoryid === id);
   },
 
-  async getcoffeeShopById(id) {
+  async getCoffeeShopById(id) {
     await db.read();
     return db.data.coffeeShops.find((coffeeShop) => coffeeShop._id === id);
   },
 
-  async deletecoffeeShop(id) {
+  async deleteCoffeeShop(id) {
     await db.read();
     const index = db.data.coffeeShops.findIndex((coffeeShop) => coffeeShop._id === id);
     db.data.coffeeShops.splice(index, 1);
     await db.write();
   },
 
-  async deleteAllcoffeeShops() {
+  async deleteAllCoffeeShops() {
     db.data.coffeeShops = [];
     await db.write();
   },
 
-  async updatecoffeeShop(coffeeShop, updatedcoffeeShop) {
-    coffeeShop.title = updatedcoffeeShop.title;
+  async updateCoffeeShop(coffeeShop, updatedcoffeeShop) {
+    coffeeShop.coffeeShopName = updatedcoffeeShop.coffeeShopName;
+    coffeeShop.lat = updatedcoffeeShop.lat;
+    coffeeShop.lng = updatedcoffeeShop.lng;
+    coffeeShop.description = updatedcoffeeShop.description;
     
     await db.write();
   },

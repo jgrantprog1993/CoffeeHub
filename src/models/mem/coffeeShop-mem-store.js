@@ -37,6 +37,6 @@ export const coffeeShopMemStore = {
   },
 
   async updateCoffeeShop(coffeeShop, updatedCoffeeShop) {
-    coffeeShop.title = updatedCoffeeShop.title;
+    coffeeShop.coffeeShopName = updatedCoffeeShop.coffeeShopName;
   },
 };

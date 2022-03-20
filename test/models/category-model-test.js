@@ -6,7 +6,7 @@ import { assertSubset } from "../test-utils.js";
 suite("Category Model tests", () => {
 
   setup(async () => {
-    db.init("mongo");
+    db.init("json");
     await db.categoryStore.deleteAllCategories();
     for (let i = 0; i < testCategories.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
@@ -22,7 +22,7 @@ suite("Category Model tests", () => {
 
   test("delete all Categories", async () => {
     let returnedCategories = await db.categoryStore.getAllCategories();
-    assertSubset(returnedCategories.length, 4);
+    assertSubset(returnedCategories.length, 3);
     await db.categoryStore.deleteAllCategories();
     returnedCategories = await db.categoryStore.getAllCategories();
     assertSubset(returnedCategories.length, 0);
@@ -34,7 +34,7 @@ suite("Category Model tests", () => {
     assertSubset(county, category);
   });
 
-  test("delete One Playist - success", async () => {
+  test("delete One Category - success", async () => {
     const id = testCategories[0]._id;
     await db.categoryStore.deleteCategoryById(id);
     const returnedCategories = await db.categoryStore.getAllCategories();

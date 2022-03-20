@@ -1,20 +1,9 @@
 {
   "categories": [
     {
-      "title": "Waterford City",
-      "_id": "55719796-4fd2-44aa-876e-75d00b2a0623"
-    },
-    {
-      "title": "South Waterford",
-      "_id": "35f15b15-c21f-4204-b1e2-13445e907d2a"
-    },
-    {
-      "title": "West Waterford",
-      "_id": "d129fbd0-4354-4cb0-a882-9c2434fbaade"
-    },
-    {
-      "title": "Tipperary",
-      "_id": "955f26c1-0a04-4e19-883c-8d4640a2675d"
+      "title": "Kilkenny",
+      "_id": "e18c30ea-5895-461d-bb2e-c834a18ef415",
+      "coffeeShops": []
     }
   ]
 }

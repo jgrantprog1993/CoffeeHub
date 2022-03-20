@@ -1,14 +1,27 @@
 <table class="table is-fullwidth">
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Coffee Shop Name</th>
+      <th>Lat</th>
+      <th>Long</th>
+      <th>Description</th>
+      <th>Delete</th>
     </tr>
   </thead>
   <tbody>
     {{#each category.coffeeShops}}
       <tr>
-        <td> 
-          {{title}}
+        <td>
+          {{coffeeShopName}}
+        </td>
+        <td>
+          {{lat}}
+        </td>
+        <td>
+            {{lng}}
+        </td>
+        <td>
+          {{description}}
         </td>
         <td>
           <a href="/category/{{../category._id}}/deletecoffeeshop/{{_id}}" class="ui icon button">
