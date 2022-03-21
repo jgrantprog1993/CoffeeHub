@@ -5,11 +5,13 @@ import { validationError } from "./logger.js";
 
 export const locationApi = {
   find: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) 
     {
       try {
-        const locations = await db.locationStore.getAllLocation();
+        const locations = await db.locationStore.getAllLocations();
         return locations;
       } catch (err) {
         return Boom.serverUnavailable("Database Error");
@@ -17,12 +19,14 @@ export const locationApi = {
     },
     tags: ["api"],
     response: { schema: LocationArraySpec, failAction: validationError },
-    description: "Get all locations",
-    notes: "Returns all locations",
+    description: "Get all locationAPI",
+    notes: "Returns all locationAPI",
   },
 
   findOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     async handler(request) 
     {
       try {
@@ -43,7 +47,9 @@ export const locationApi = {
   },
 
   create: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) 
     {
       try {
@@ -65,7 +71,9 @@ export const locationApi = {
   },
 
   deleteOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) 
     {
       try {
@@ -85,7 +93,9 @@ export const locationApi = {
   },
 
   deleteAll: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) 
     {
       try {

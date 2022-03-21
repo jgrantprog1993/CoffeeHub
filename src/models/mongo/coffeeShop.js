@@ -3,9 +3,12 @@ import Mongoose from "mongoose";
 const { Schema } = Mongoose;
 
 const coffeeShopSchema = new Schema({
-  title: String,
-  
-  Locationid: {
+  coffeeShopName: String,
+  lat:Number,
+  lng:Number,
+  description:String,
+  rating:Number,
+  locationid: {
     type: Schema.Types.ObjectId,
     ref: "Location",
   },

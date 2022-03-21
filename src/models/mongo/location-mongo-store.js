@@ -2,7 +2,7 @@ import { Location } from "./location.js";
 import { coffeeShopMongoStore } from "./coffeeShop-mongo-store.js";
 
 export const locationMongoStore = {
-  async getAllLocation() {
+  async getAllLocations() {
     const locations = await Location.find().lean();
     return locations;
   },
@@ -24,7 +24,7 @@ export const locationMongoStore = {
     return this.getLocationById(locationObj._id);
   },
 
-  async getUserLocation(id) {
+  async getUserLocations(id) {
     const location = await Location.find({ userid: id }).lean();
     return location;
   },
@@ -37,7 +37,7 @@ export const locationMongoStore = {
     }
   },
 
-  async deleteAllLocation() {
+  async deleteAllLocations() {
     await Location.deleteMany({});
   }
 };

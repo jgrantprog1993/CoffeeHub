@@ -1,15 +1,23 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { placeMarkService } from "./placemark-service.js";
-import { maggie, testUsers } from "../fixtures.js";
+import { maggie, testUsers, maggieCredentials  } from "../fixtures.js";
 import { db } from "../../src/models/db.js";
 
 const users = new Array(testUsers.length);
 
 suite("User API tests", () => {
   setup(async () => {
-    db.init("json");
-    await db.userStore.deleteAll();
+    placeMarkService.clearAuth();
+    await placeMarkService.createUser(maggie);
+    await placeMarkService.authenticate(maggieCredentials);
+    await placeMarkService.deleteAllUsers();
+    for (let i = 0; i < testUsers.length; i += 1) {
+      // eslint-disable-next-line no-await-in-loop
+      users[0] = await placeMarkService.createUser(testUsers[i]);
+    }
+    await placeMarkService.createUser(maggie);
+    await placeMarkService.authenticate(maggieCredentials);
   });
   teardown(async () => {});
 
@@ -20,23 +28,40 @@ suite("User API tests", () => {
   });
 
   test("delete all user", async () => {
-    for (let i = 0; i < testUsers.length; i += 1) {
-      // eslint-disable-next-line no-await-in-loop
-      await db.userStore.addUser(testUsers[i]);
-    }
-    let returnedUsers = await db.userStore.getAllUsers();
-    assert.equal(returnedUsers.length, 3);
-    await db.userStore.deleteAll();
-    returnedUsers = await db.userStore.getAllUsers();
-    assert.equal(returnedUsers.length, 0);
+    let returnedUsers = await placeMarkService.getAllUsers();
+    assert.equal(returnedUsers.length, 4);
+    await placeMarkService.deleteAllUsers();
+    await placeMarkService.createUser(maggie);
+    await placeMarkService.authenticate(maggieCredentials);
+    returnedUsers = await placeMarkService.getAllUsers();
+    assert.equal(returnedUsers.length, 1);
   });
 
   test("get a user", async () => {
-    const user = await db.userStore.addUser(maggie);
-    const returnedUser1 = await db.userStore.getUserById(user._id);
-    assert.deepEqual(user, returnedUser1);
-    const returnedUser2 = await db.userStore.getUserByEmail(user.email);
-    assert.deepEqual(user, returnedUser2);
+    const returnedUser = await placeMarkService.getUser(users[0]._id);
+    assert.deepEqual(users[0], returnedUser);
   });
 
+  test("get a user - bad id", async () => {
+    try {
+      const returnedUser = await placeMarkService.getUser("1234");
+      assert.fail("Should not return a response");
+    } catch (error) {
+      assert(error.response.data.message === "No User with this id");
+      assert.equal(error.response.data.statusCode, 503);
+    }
+  });
+
+  test("get a user - deleted user", async () => {
+    await placeMarkService.deleteAllUsers();
+    await placeMarkService.createUser(maggie);
+    await placeMarkService.authenticate(maggieCredentials);
+    try {
+      const returnedUser = await placeMarkService.getUser(users[0]._id);
+      assert.fail("Should not return a response");
+    } catch (error) {
+      assert(error.response.data.message === "No User with this id");
+      assert.equal(error.response.data.statusCode, 404);
+    }
+  });
 });

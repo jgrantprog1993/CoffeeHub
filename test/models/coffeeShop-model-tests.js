@@ -57,9 +57,4 @@ suite("CoffeeShop Model tests", () => {
   });
 
 
-  test("delete one coffeeShop - fail", async () => {
-    await db.coffeeShopStore.deleteCoffeeShop("bad-id");
-    const coffeeShops = await db.coffeeShopStore.getAllCoffeeShops();
-    assert.equal(coffeeShops.length, testLocation.length);
-  });
 });

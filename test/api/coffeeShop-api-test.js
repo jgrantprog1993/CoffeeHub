@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { placeMarkService } from "./placemark-service.js";
-import { maggie, fav1, testLocation, testCoffeeShops, fav2 } from "../fixtures.js"
+import { maggie, fav1, testLocation, testCoffeeShops, fav2, maggieCredentials} from "../fixtures.js"
 
 suite("CoffeeShop API tests", () => {
   let user = null;
@@ -10,7 +10,7 @@ suite("CoffeeShop API tests", () => {
   setup(async () => {
     placeMarkService.clearAuth();
     user = await placeMarkService.createUser(maggie);
-    await placeMarkService.authenticate(maggie);
+    await placeMarkService.authenticate(maggieCredentials);
     await placeMarkService.deleteAllLocation();
     await placeMarkService.deleteAllCoffeeShops();
     await placeMarkService.deleteAllUsers();
@@ -25,6 +25,7 @@ suite("CoffeeShop API tests", () => {
 
   test("create coffeeShop", async () => {
     const returnedCoffeeShop = await placeMarkService.createCoffeeShop(waterfordCoffeeShops._id, fav2);
+    console.log(returnedCoffeeShop)
     assertSubset(fav2, returnedCoffeeShop);
   });
 

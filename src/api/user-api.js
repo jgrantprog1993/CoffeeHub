@@ -1,13 +1,15 @@
 import Boom from "@hapi/boom";
 import { db } from "../models/db.js";
-import { UserSpec, UserSpecPlus, IdSpec, UserArray } from "../models/joi-schemas.js";
+import { UserCredentialsSpec, UserSpec, UserSpecPlus, IdSpec, UserArray,JwtAuth  } from "../models/joi-schemas.js";
 import { validationError } from "./logger.js";
-//import { createToken } from "./jwt-utils.js";
+import { createToken } from "./jwt-utils.js";
 
 
 export const userApi = {
   find: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const users = await db.userStore.getAllUsers();
@@ -38,11 +40,19 @@ export const userApi = {
       } catch (err) {
         return Boom.serverUnavailable("Database Error");
       }
-    }
+    },
+    tags: ["api"],
+    description: "Authenticate  a User",
+    notes: "If user has valid email/password, create and return a JWT token",
+    validate: { payload: UserCredentialsSpec, failAction: validationError },
+    response: { schema: JwtAuth, failAction: validationError }
+  
   },
 
   findOne: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function (request, h) {
       try {
         const user = await db.userStore.getUserById(request.params.id);
@@ -83,7 +93,9 @@ export const userApi = {
   },
 
   deleteAll: {
-    auth: false,
+    auth: {
+      strategy: "jwt",
+    },
     handler: async function(request, h) {
       try {
         await db.userStore.deleteAll();

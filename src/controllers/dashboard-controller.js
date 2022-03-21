@@ -5,7 +5,7 @@ export const dashboardController = {
   index: {
     handler: async function (request, h) {
       const loggedInUser = request.auth.credentials;
-      const locations = await db.locationStore.getUserLocation(loggedInUser._id);
+      const locations = await db.locationStore.getUserLocations(loggedInUser._id);
       const viewData = {
         title: "PlaceMark Dashboard",
         user: loggedInUser,

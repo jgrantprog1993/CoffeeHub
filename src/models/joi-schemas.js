@@ -24,10 +24,10 @@ export const UserArray = Joi.array().items(UserSpecPlus).label("UserArray");
 export const CoffeeShopSpec = Joi.object()
   .keys({
     coffeeShopName: Joi.string().required().example("Trade"),
-    lat: Joi.number().required(),
-    lng: Joi.number().required(),
-    description: Joi.string().required(),
-    rating: Joi.string().required(),
+    lat: Joi.number().required().example(12.123),
+    lng: Joi.number().required().example(-23.35),
+    description: Joi.string().required().example("Nice Flat White"),
+    rating: Joi.string().required().example(4.1),
   })
   .label("CoffeeShop");
 
@@ -40,7 +40,7 @@ export const CoffeeShopArraySpec = Joi.array().items(CoffeeShopSpecPlus).label("
   
 export const LocationSpec = Joi.object()
   .keys({
-    locationName: Joi.string().required().example("fav1"),
+    locationName: Joi.string().required().example("Waterford"),
     userid: IdSpec,
     coffeeShops: CoffeeShopArraySpec,
   })
@@ -52,3 +52,10 @@ export const LocationSpecPlus = LocationSpec.keys({
 }).label("LocationPlus");
 
 export const LocationArraySpec = Joi.array().items(LocationSpecPlus).label("LocationArray");
+
+export const JwtAuth = Joi.object()
+  .keys({
+    success: Joi.boolean().example("true").required(),
+    token: Joi.string().example("eyJhbGciOiJND.g5YmJisIjoiaGYwNTNjAOhE.gCWGmY5-YigQw0DCBo").required(),
+  })
+  .label("JwtAuth");
