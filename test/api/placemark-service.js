@@ -23,28 +23,28 @@ export const placeMarkService = {
     const res = await axios.delete(`${this.placeMarkUrl}/api/users`);
     return res.data;
   },
-  async createCategory(category) {
-    const res = await axios.post(`${this.placeMarkUrl}/api/categories`, category);
+  async createLocation(location) {
+    const res = await axios.post(`${this.placeMarkUrl}/api/locations`, location);
     return res.data;
   },
 
-  async deleteAllCategories() {
-    const response = await axios.delete(`${this.placeMarkUrl}/api/categories`);
+  async deleteAllLocation() {
+    const response = await axios.delete(`${this.placeMarkUrl}/api/locations`);
     return response.data;
   },
 
-  async deleteCategory(id) {
-    const response = await axios.delete(`${this.placeMarkUrl}/api/categories/${id}`);
+  async deleteLocation(id) {
+    const response = await axios.delete(`${this.placeMarkUrl}/api/locations/${id}`);
     return response;
   },
 
-  async getAllCategories() {
-    const res = await axios.get(`${this.placeMarkUrl}/api/categories`);
+  async getAllLocation() {
+    const res = await axios.get(`${this.placeMarkUrl}/api/locations`);
     return res.data;
   },
 
-  async getCategory(id) {
-    const res = await axios.get(`${this.placeMarkUrl}/api/categories/${id}`);
+  async getLocation(id) {
+    const res = await axios.get(`${this.placeMarkUrl}/api/locations/${id}`);
     return res.data;
   },
 

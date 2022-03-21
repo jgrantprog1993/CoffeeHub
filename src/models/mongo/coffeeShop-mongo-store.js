@@ -6,15 +6,15 @@ export const coffeeShopMongoStore = {
     return coffeeShops;
   },
 
-  async addCoffeeShop(categoryId, coffeeShop) {
-    coffeeShop.categoryid = categoryId;
+  async addCoffeeShop(locationId, coffeeShop) {
+    coffeeShop.locationid = locationId;
     const newCoffeeShop = new CoffeeShop(coffeeShop);
     const coffeeShopObj = await newCoffeeShop.save();
     return this.getCoffeeShopById(coffeeShopObj._id);
   },
 
-  async getCoffeeShopsByCategoryId(id) {
-    const coffeeShops = await CoffeeShop.find({ categoryid: id }).lean();
+  async getCoffeeShopsByLocationId(id) {
+    const coffeeShops = await CoffeeShop.find({ locationid: id }).lean();
     return coffeeShops;
   },
 

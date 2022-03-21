@@ -6,7 +6,7 @@
       "lng": -7.2557,
       "description": "Down in IrishTown, best flatwhite and fancy cakes",
       "_id": "2297e523-0f0d-470c-9114-a4634553b5ae",
-      "categoryid": "e18c30ea-5895-461d-bb2e-c834a18ef415"
+      "locationid": "e18c30ea-5895-461d-bb2e-c834a18ef415"
     },
     {
       "coffeeShopName": "Cafe La COCO",
@@ -14,7 +14,7 @@
       "lng": -7.2517,
       "description": "Beside the Left Bank, very small",
       "_id": "f84c72e0-8e1f-4c54-9084-7edc44748036",
-      "categoryid": "e18c30ea-5895-461d-bb2e-c834a18ef415"
+      "locationid": "e18c30ea-5895-461d-bb2e-c834a18ef415"
     },
     {
       "coffeeShopName": "Face2",
@@ -22,7 +22,56 @@
       "lng": -7.253453,
       "description": "Extra small flatwhites",
       "_id": "5ab0b137-a861-4a99-874a-bd32b2b2c7e3",
-      "categoryid": "e18c30ea-5895-461d-bb2e-c834a18ef415"
+      "locationid": "e18c30ea-5895-461d-bb2e-c834a18ef415"
+    },
+    {
+      "coffeeShopName": "sxd",
+      "lat": 12,
+      "lng": 12,
+      "description": "123",
+      "_id": "f66ae66e-4683-459f-a1b5-484229b38d73",
+      "locationid": "e6694cc0-41f7-4d49-902c-e24335581808"
+    },
+    {
+      "coffeeShopName": "sdf",
+      "lat": 45,
+      "lng": 12,
+      "description": "42577",
+      "_id": "6f51c09b-51e5-479d-98d9-1531a5e10e99",
+      "locationid": "f6fe96e9-9770-4331-bd9f-13814f6301e9"
+    },
+    {
+      "coffeeShopName": "CakeFace",
+      "lat": 23.365,
+      "lng": 25.02,
+      "description": "vnice",
+      "_id": "954907bd-81d9-46e8-a3a3-2b89b043c261",
+      "locationid": "c3c5453c-7559-40de-981d-ab987970b9d5"
+    },
+    {
+      "coffeeShopName": "l",
+      "lat": 1,
+      "lng": 1,
+      "description": "ldf",
+      "_id": "52f8236f-d982-49c1-8667-aa8e6bc5e53b",
+      "locationid": "9c6cbb8e-8c02-4850-bf34-6903ed24e38b"
+    },
+    {
+      "coffeeShopName": "m",
+      "lat": 1,
+      "lng": 1,
+      "description": "m123",
+      "_id": "93a75994-cece-4ee9-9e3b-a7ea1497542f",
+      "locationid": "9c107983-ca02-43bd-9e5c-c5485f7f3fb4"
+    },
+    {
+      "coffeeShopName": "asdf",
+      "lat": 1,
+      "lng": 2,
+      "description": "123dfb",
+      "rating": "3.8",
+      "_id": "a5470cf9-cb29-42b4-986a-5b91c2cb11c7",
+      "locationid": "808956e6-2a1a-4eb7-bf00-34a4e590de55"
     }
   ]
 }

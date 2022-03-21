@@ -27,6 +27,7 @@ export const CoffeeShopSpec = Joi.object()
     lat: Joi.number().required(),
     lng: Joi.number().required(),
     description: Joi.string().required(),
+    rating: Joi.string().required(),
   })
   .label("CoffeeShop");
 
@@ -37,17 +38,17 @@ export const CoffeeShopSpecPlus = CoffeeShopSpec.keys({
 
 export const CoffeeShopArraySpec = Joi.array().items(CoffeeShopSpecPlus).label("CoffeeShopArray");
   
-export const CategorySpec = Joi.object()
+export const LocationSpec = Joi.object()
   .keys({
-    title: Joi.string().required().example("fav1"),
+    locationName: Joi.string().required().example("fav1"),
     userid: IdSpec,
     coffeeShops: CoffeeShopArraySpec,
   })
-  .label("Category");
+  .label("Location");
 
-export const CategorySpecPlus = CategorySpec.keys({
+export const LocationSpecPlus = LocationSpec.keys({
   _id: IdSpec,
   __v: Joi.number(),
-}).label("CategoryPlus");
+}).label("LocationPlus");
 
-export const CategoryArraySpec = Joi.array().items(CategorySpecPlus).label("CategoryArray");
+export const LocationArraySpec = Joi.array().items(LocationSpecPlus).label("LocationArray");

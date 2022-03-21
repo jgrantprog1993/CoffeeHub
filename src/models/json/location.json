@@ -1,0 +1,94 @@
+{
+  "locations": [
+    {
+      "title": "Kilkenny",
+      "_id": "e18c30ea-5895-461d-bb2e-c834a18ef415",
+      "coffeeShops": []
+    },
+    {
+      "userid": "5546d661-0252-4a44-a0d5-7eed2295e7dc",
+      "title": "htest",
+      "_id": "15d3c6e1-1d73-4de7-91df-1a039ad011b4"
+    },
+    {
+      "userid": "0a0a8537-26db-4c2f-b23d-00b98261352e",
+      "title": "Waterford Coffee",
+      "_id": "9de8cf31-fc5e-43a7-8c59-b53d38b69a47"
+    },
+    {
+      "userid": "0a0a8537-26db-4c2f-b23d-00b98261352e",
+      "title": "Kilkenny Coffee",
+      "_id": "c3c5453c-7559-40de-981d-ab987970b9d5"
+    },
+    {
+      "userid": "9d8f17e6-e987-485d-8ea2-bbaad9b1e000",
+      "title": "Waterford Coffee",
+      "_id": "9c6cbb8e-8c02-4850-bf34-6903ed24e38b"
+    },
+    {
+      "userid": "2d283ddf-7147-4b7a-ab50-63e47d87ce68",
+      "title": "Waterford Coffee",
+      "_id": "9c107983-ca02-43bd-9e5c-c5485f7f3fb4"
+    },
+    {
+      "userid": "a943079b-75f7-4b20-9e06-e0d8e011248d",
+      "title": "Waterford Coffee",
+      "_id": "808956e6-2a1a-4eb7-bf00-34a4e590de55"
+    },
+    {
+      "userid": "692fe2ba-86ca-4e4f-8b27-bc7656d123cf",
+      "_id": "cc25b71f-eae7-44dc-973f-543e93da8d41"
+    },
+    {
+      "userid": "692fe2ba-86ca-4e4f-8b27-bc7656d123cf",
+      "_id": "066185ce-038b-4ef8-881f-51ac9ce8221a"
+    },
+    {
+      "userid": "f360627b-904e-4369-93ff-e99d45b14205",
+      "_id": "bb71a5f5-d8fb-4867-bf7d-c0ffd1d2e6e0"
+    },
+    {
+      "userid": "8a6b2d84-e0d8-4ad3-b04e-bb9183a156bb",
+      "_id": "25c871a1-f067-4076-85d4-4cdf8c365211"
+    },
+    {
+      "userid": "4b7b82b2-2cce-4ded-b0e9-59e02ff87510",
+      "_id": "8922b0c6-7f2e-465a-b033-ab5ed6942a22"
+    },
+    {
+      "userid": "4b7b82b2-2cce-4ded-b0e9-59e02ff87510",
+      "_id": "37690c02-2b62-4008-a5d4-8be6673646e0"
+    },
+    {
+      "userid": "4b7b82b2-2cce-4ded-b0e9-59e02ff87510",
+      "_id": "97690a97-e9cf-4316-85ae-25112888f220"
+    },
+    {
+      "userid": "4b7b82b2-2cce-4ded-b0e9-59e02ff87510",
+      "_id": "687f03d3-2d2f-41c8-aa4a-fb1e4d3de22e"
+    },
+    {
+      "userid": "4b7b82b2-2cce-4ded-b0e9-59e02ff87510",
+      "_id": "68ae61f8-1ff0-428e-adc0-1ba41ee02f95"
+    },
+    {
+      "userid": "eac0c1b2-21ff-44cd-991c-75737fc76568",
+      "_id": "08432052-9946-4059-9877-821ed6cc4b72"
+    },
+    {
+      "userid": "b53fae1b-0cf0-4a71-a595-5d4cf9a30757",
+      "locationName": "Antrim",
+      "_id": "58476838-e064-45a5-9cc0-e4fe8b42fbce"
+    },
+    {
+      "userid": "1cfbfa53-34fd-4d48-b065-608570bc217b",
+      "locationName": "Antrim",
+      "_id": "30e43fd6-9433-4cd4-aa82-4ab6cdc5c5f6"
+    },
+    {
+      "userid": "1cfbfa53-34fd-4d48-b065-608570bc217b",
+      "locationName": "Armagh",
+      "_id": "08f5f9e7-eeee-4503-8ade-4be8c34d15a0"
+    }
+  ]
+}

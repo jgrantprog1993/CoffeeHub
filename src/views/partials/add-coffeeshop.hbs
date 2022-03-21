@@ -1,4 +1,4 @@
-<form class="box" action="/category/{{category._id}}/addCoffeeShop" method="POST">
+<form class="box" action="/location/{{location._id}}/addCoffeeShop" method="POST">
   <label>Enter Coffee Shop Details:</label>
   <div class="field is-horizontal">
     <div class="field-body">
@@ -8,16 +8,22 @@
       </div>
       <div class="field">
           <label class="label">Latitude</label>
-        <input class="input" type="number" step="0.0001" maxlength="10" min="-90.0000" max="90.0000" placeholder="Enter Lat" name="lat">
+        <input class="input" type="number" step="0.0001" min="-90.0000" max="90.0000" placeholder="Enter Lat" name="lat">
       </div>
       <div class="field">
         <label class="label">Longitude</label>
-        <input class="input" type="number" step="0.0001" maxlength="10" min="-180.0000" max="180.0000"placeholder="Enter Lng" name="lng">
+        <input class="input" type="number" step="0.0001" min="-180.0000" max="180.0000"placeholder="Enter Lng" name="lng">
       </div>
       <div class="field">
           <label class="label">Descrip.</label>
           <div class="control">
               <textarea class="textarea is-hovered" placeholder="Description" type="text" pattern="[A-Za-z\s]+{1,20}" name="description"></textarea>
+          </div>
+      </div>
+      <div class="field">
+          <label class="label">Rating</label>
+          <div class="control">
+              <input class="input" type="number" step="0.01" min="0" max="5" placeholder="Out of 5 Stars?" name="rating">
           </div>
       </div>
     </div>

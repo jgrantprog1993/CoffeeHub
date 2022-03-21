@@ -5,11 +5,12 @@
       <th>Lat</th>
       <th>Long</th>
       <th>Description</th>
+      <th>Rating</th>
       <th>Delete</th>
     </tr>
   </thead>
   <tbody>
-    {{#each category.coffeeShops}}
+    {{#each location.coffeeShops}}
       <tr>
         <td>
           {{coffeeShopName}}
@@ -18,13 +19,16 @@
           {{lat}}
         </td>
         <td>
-            {{lng}}
+          {{lng}}
         </td>
         <td>
           {{description}}
         </td>
         <td>
-          <a href="/category/{{../category._id}}/deletecoffeeshop/{{_id}}" class="ui icon button">
+          <b>{{rating}} / 5  </b>
+        </td>
+        <td>
+          <a href="/location/{{../location._id}}/deletecoffeeshop/{{_id}}" class="ui icon button">
             <i class="fas fa-trash"></i>
           </a>
         </td>

@@ -40,7 +40,7 @@ export const maggie = {
   }
   
 
-  export const testCategories = [
+  export const testLocation = [
       {title: "Waterford City"},
       {title: "South Waterford"},
       {title: "West Waterford"},

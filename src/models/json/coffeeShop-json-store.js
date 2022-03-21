@@ -11,18 +11,18 @@ export const coffeeShopJsonStore = {
     return db.data.coffeeShops;
   },
 
-  async addCoffeeShop(categoryId, coffeeShop) {
+  async addCoffeeShop(locationId, coffeeShop) {
     await db.read();
     coffeeShop._id = v4();
-    coffeeShop.categoryid = categoryId;
+    coffeeShop.locationid = locationId;
     db.data.coffeeShops.push(coffeeShop);
     await db.write();
     return coffeeShop;
   },
 
-  async getCoffeeShopsByCategoryId(id) {
+  async getCoffeeShopsByLocationId(id) {
     await db.read();
-    return db.data.coffeeShops.filter((coffeeShop) => coffeeShop.categoryid === id);
+    return db.data.coffeeShops.filter((coffeeShop) => coffeeShop.locationid === id);
   },
 
   async getCoffeeShopById(id) {
@@ -47,6 +47,7 @@ export const coffeeShopJsonStore = {
     coffeeShop.lat = updatedcoffeeShop.lat;
     coffeeShop.lng = updatedcoffeeShop.lng;
     coffeeShop.description = updatedcoffeeShop.description;
+    coffeeShop.rating = updatedcoffeeShop.rating;
     
     await db.write();
   },

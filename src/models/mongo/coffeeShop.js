@@ -5,9 +5,9 @@ const { Schema } = Mongoose;
 const coffeeShopSchema = new Schema({
   title: String,
   
-  Categoryid: {
+  Locationid: {
     type: Schema.Types.ObjectId,
-    ref: "Category",
+    ref: "Location",
   },
 });
 

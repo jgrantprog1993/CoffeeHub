@@ -1,7 +1,7 @@
 import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
-import { categoryController } from "./controllers/category-controller.js";
+import { locationController } from "./controllers/location-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -12,15 +12,17 @@ export const webRoutes = [
   { method: "POST", path: "/authenticate", config: accountsController.login },
 
   { method: "GET", path: "/dashboard", config: dashboardController.index },
-  { method: "POST", path: "/dashboard/addcategory", config: dashboardController.addCategory },
+  { method: "POST", path: "/dashboard/addlocation", config: dashboardController.addLocation },
 
   { method: "GET", path: "/about", config: aboutController.index },
 
-  { method: "GET", path: "/category/{id}", config: categoryController.index },
-  { method: "POST", path: "/category/{id}/addCoffeeShop", config: categoryController.addCoffeeShop },
+  { method: "GET", path: "/location/{id}", config: locationController.index },
+  { method: "POST", path: "/location/{id}/addCoffeeShop", config: locationController.addCoffeeShop },
 
-  { method: "GET", path: "/dashboard/deletecategory/{id}", config: dashboardController.deleteCategory },
-  { method: "GET", path: "/category/{id}/deletecoffeeshop/{coffeeShopid}", config: categoryController.deleteCoffeeShop },
+  { method: "GET", path: "/dashboard/deletelocation/{id}", config: dashboardController.deleteLocation },
+  { method: "GET", path: "/location/{id}/deletecoffeeshop/{coffeeShopid}", config: locationController.deleteCoffeeShop },
 
   { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
+
+  
 ];  

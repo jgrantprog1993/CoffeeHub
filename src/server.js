@@ -43,7 +43,21 @@ async function init() {
   await server.register(Inert);
   //await server.register(jwt);
   server.validator(Joi);
+  // https://github.com/toymachiner62/hapi-authorization
+  let plugins = [
+    {
+      plugin: require('hapi-auth-basic')
+    },
+    {
+      plugin: require('hapi-authorization'),
+      options: {
+        roles: false	
+      }
+    }
+  ];
   
+  await server.register(plugins);
+
   server.views({ 
     engines: {
       hbs: Handlebars,
@@ -84,6 +98,8 @@ async function init() {
       options: swaggerOptions,
     },
   ]);
+
+
   await server.start();
   console.log("Server running on %s", server.info.uri);
 }

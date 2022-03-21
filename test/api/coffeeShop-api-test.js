@@ -1,7 +1,7 @@
 import { assert } from "chai";
 import { assertSubset } from "../test-utils.js";
 import { placeMarkService } from "./placemark-service.js";
-import { maggie, fav1, testCategories, testCoffeeShops, fav2 } from "../fixtures.js"
+import { maggie, fav1, testLocation, testCoffeeShops, fav2 } from "../fixtures.js"
 
 suite("CoffeeShop API tests", () => {
   let user = null;
@@ -11,14 +11,14 @@ suite("CoffeeShop API tests", () => {
     placeMarkService.clearAuth();
     user = await placeMarkService.createUser(maggie);
     await placeMarkService.authenticate(maggie);
-    await placeMarkService.deleteAllCategories();
+    await placeMarkService.deleteAllLocation();
     await placeMarkService.deleteAllCoffeeShops();
     await placeMarkService.deleteAllUsers();
     
     user = await placeMarkService.createUser(maggie);
     await  placeMarkService.authenticate(maggie);
     fav1.userid = user._id;
-    waterfordCoffeeShops = await placeMarkService.createCategory(fav1);
+    waterfordCoffeeShops = await placeMarkService.createLocation(fav1);
   });
 
   teardown(async () => {});
@@ -57,15 +57,15 @@ suite("CoffeeShop API tests", () => {
     assert.equal(returnedCoffeeShops.length, 0);
   });
 
-  test("denormalised category", async () => {
+  test("denormalised location", async () => {
     for (let i = 0; i < testCoffeeShops.length; i += 1) {
       // eslint-disable-next-line no-await-in-loop
       await placeMarkService.createCoffeeShop(waterfordCoffeeShops._id, testCoffeeShops[i]);
     }
-    const returnedCategory = await placeMarkService.getCategory(waterfordCoffeeShops._id);
-    assert.equal(returnedCategory.coffeeShops.length, testCoffeeShops.length);
+    const returnedLocation = await placeMarkService.getLocation(waterfordCoffeeShops._id);
+    assert.equal(returnedLocation.coffeeShops.length, testCoffeeShops.length);
     for (let i = 0; i < testCoffeeShops.length; i += 1) {
-      assertSubset(testCoffeeShops[i], returnedCategory.coffeeShops[i]);
+      assertSubset(testCoffeeShops[i], returnedLocation.coffeeShops[i]);
     }
   });
 });
