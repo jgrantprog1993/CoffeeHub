@@ -5,7 +5,8 @@
       "lastName": "Simpson",
       "email": "homer@simpson.com",
       "password": "secret",
-      "_id": "c45f230a-cc09-405d-97b4-af593b01b8ba"
+      "_id": "c45f230a-cc09-405d-97b4-af593b01b8ba",
+      "permission": "ADMIN"
     },
     {
       "firstName": "Marge",

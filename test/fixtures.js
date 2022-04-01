@@ -12,18 +12,21 @@ export const maggie = {
       lastName: "Simpson",
       email: "homer@simpson.com",
       password: "secret",
+      permission: "ADMIN",
     },
     {
       firstName: "Marge",
       lastName: "Simpson",
       email: "marge@simpson.com",
       password: "secret",
+      permission: "USER",
     },
     {
       firstName: "Bart",
       lastName: "Simpson",
       email: "bart@simpson.com",
       password: "secret",
+      permission: "USER",
     },
   ];
 

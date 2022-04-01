@@ -4,6 +4,7 @@ import Handlebars from "handlebars";
 import path from "path";
 import Joi from "joi";
 import { fileURLToPath } from "url";
+import * as hacli from "@antoniogiordano/hacli";
 import Cookie from "@hapi/cookie";
 import Inert from "@hapi/inert";
 import dotenv from "dotenv";
@@ -11,6 +12,7 @@ import HapiSwagger from "hapi-swagger";
 import jwt from "hapi-auth-jwt2";
 import { validate } from "./api/jwt-utils.js";
 import { db } from "./models/db.js";
+import Helpers from "./helpers/helpers.js";
 import { accountsController } from "./controllers/accounts-controller.js";
 import { apiRoutes } from "./api-routes.js";
 
@@ -65,6 +67,15 @@ async function init() {
   
  // await server.register(plugins);
 
+  
+ await server.register({
+  plugin: hacli,
+  options: {
+    permissions: ["ADMIN", "USER"],
+  },
+});
+
+
   server.views({ 
     engines: {
       hbs: Handlebars,
@@ -108,6 +119,7 @@ async function init() {
 
 
   await server.start();
+  Helpers(Handlebars);
   console.log("Server running on %s", server.info.uri);
 }
 

@@ -7,7 +7,7 @@ export const dashboardController = {
       const loggedInUser = request.auth.credentials;
       const locations = await db.locationStore.getUserLocations(loggedInUser._id);
       const viewData = {
-        title: "PlaceMark Dashboard",
+        title: "CoffeeHub Dashboard",
         user: loggedInUser,
         locations: locations,
       };

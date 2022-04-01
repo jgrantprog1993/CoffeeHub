@@ -14,4 +14,4 @@ const coffeeShopSchema = new Schema({
   },
 });
 
-export const CoffeeShop = Mongoose.model("CoffeeShop", coffeeShopSchema);
+export const CoffeeShop = Mongoose.model("CoffeeShops", coffeeShopSchema);

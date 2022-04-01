@@ -1,6 +1,14 @@
 import { db } from "../models/db.js";
 import { UserSpec, UserCredentialsSpec } from "../models/joi-schemas.js";
 
+
+//Handlebars.registerHelper('ifeq', function(a, b, opts) {
+//  if(a == b) // Or === depending on your needs
+ //     return opts.fn(this);
+ // else
+ //     return opts.inverse(this); }); 
+
+
 export const accountsController = {
   index: {
     auth: false,
@@ -70,6 +78,6 @@ export const accountsController = {
     if (!user) {
       return { valid: false };
     }
-    return { valid: true, credentials: user };
+    return { valid: true, credentials: user, permissions: user.permission};
   },
 };

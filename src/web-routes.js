@@ -2,6 +2,7 @@ import { accountsController } from "./controllers/accounts-controller.js";
 import { dashboardController } from "./controllers/dashboard-controller.js";
 import { aboutController } from "./controllers/about-controller.js";
 import { locationController } from "./controllers/location-controller.js";
+import { adminController } from "./controllers/admin-controller.js";
 
 export const webRoutes = [
   { method: "GET", path: "/", config: accountsController.index },
@@ -22,7 +23,9 @@ export const webRoutes = [
   { method: "GET", path: "/dashboard/deletelocation/{id}", config: dashboardController.deleteLocation },
   { method: "GET", path: "/location/{id}/deletecoffeeshop/{coffeeShopid}", config: locationController.deleteCoffeeShop },
 
-  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } }
+  { method: "GET", path: "/{param*}", handler: { directory: { path: "./public" } }, options: { auth: false } },
 
-  
+  {method: "GET", path: "/admin-dashboard", config: adminController.index },
+  {method: "GET", path: "/admin-dashboard/deleteusers/{id}", config: adminController.deleteUser },
+  {method: "GET", path: "/admin-dashboard/deletecoffeeshop/{id}", config: adminController.deleteCoffeeShop },
 ];  
