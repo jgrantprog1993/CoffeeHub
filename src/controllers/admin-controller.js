@@ -23,7 +23,7 @@ export const adminController = {
         locations: locations,
         coffeeShops: coffeeShops,
         permissions: users.permissions,
-        usersByID: usersByID,        
+        //usersByID: usersByID,        
       };
       return h.view("admin-dashboard", viewData);
     },

@@ -3,7 +3,7 @@ import Mongoose from "mongoose";
 const { Schema } = Mongoose;
 
 const locationSchema = new Schema({
-  placeName: String,
+  locationName: String,
   userid: {
     type: Schema.Types.ObjectId,
     ref: "User",

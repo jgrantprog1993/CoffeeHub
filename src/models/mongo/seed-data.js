@@ -27,7 +27,7 @@ export const seedData = {
   locations:{
     _model: "Location",
     waterford: {
-      placeName: "Waterford",
+      locationName: "Waterford",
       userid: "->users.bart"
     }
   },

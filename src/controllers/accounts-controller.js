@@ -1,5 +1,6 @@
 import { db } from "../models/db.js";
-import { UserSpec, UserCredentialsSpec } from "../models/joi-schemas.js";
+import { UserSpec, UserCredentialsSpec, UserSpecPlus } from "../models/joi-schemas.js";
+import { userMongoStore } from "../models/mongo/user-mongo-store.js";
 
 
 //Handlebars.registerHelper('ifeq', function(a, b, opts) {
@@ -71,8 +72,43 @@ export const accountsController = {
       return h.redirect("/");
     },
   },
-  // showuserCred
-  // updateuserCred
+  user: {
+    handler: async function (request, h) {
+      const loggedInUser = request.auth.credentials;
+      const user = await db.userStore.getUserById(loggedInUser._id);
+      const viewData = {
+        title: "User Credentials",
+        user: user,
+      };
+      return h.view("userCredentials-view", viewData);
+    },
+  },
+// updateuserCred
+  editLoggedInUser: {
+    validate: {
+      payload: UserSpecPlus,
+      options: { abortEarly: false },
+      failAction: function (request, h, error) {
+        return h.view("userCredentials-view", { title: "Error", errors: error.details }).takeover.code(400);
+      },
+    },
+    handler: async function (request, h) {
+      const loggedInUser = request.auth.credentials;
+      const newUserCredentials = {
+        firstName: request.payload.firstName,
+        lastName: request.payload.lastName,
+        email: request.payload.email,
+        password: request.payload.password,
+      };
+      try {
+        await db.userStore.updateUserCredentials(loggedInUser._id, newUserCredentials);
+      } catch (error) {
+        console.log(error);
+      }
+      return h.view("login-view");
+    },
+  },
+  
   async validate(request, session) {
     const user = await db.userStore.getUserById(session.id);
     if (!user) {

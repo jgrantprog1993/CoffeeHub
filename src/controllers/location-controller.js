@@ -20,7 +20,7 @@ export const locationController = {
       options: { abortEarly: false },
       failAction: function (request, h, error) {
         
-        return h.view("location-view", { title: "Add coffeeShop error", errors: error.details }).takeover().code(400);
+        return h.view("location-view", { title: "Add CoffeeShop error", errors: error.details }).takeover().code(400);
       },
     },
     handler: async function (request, h) {
