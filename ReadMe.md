@@ -1,5 +1,5 @@
-# Full Stack Web Development - Assignment 1 (Placemark)  
 # Project Name: CoffeeHub 
+Full Stack Web Development - Assignment 1 
 ## Project Description: 
 CoffeeHub is a Node.js/HAPI application. The intention is for a user to sign up and add there favourite(And not so Favourite) including comments, review, locations etc.
 
